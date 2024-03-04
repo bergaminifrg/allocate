@@ -26,7 +26,9 @@ function allocate(salesOrders, purchaseOrders) {
             }
         }
         if (purchaseOrder && availableInventory >= quantity){
-            const deliveryDate = addDaysToDate(purchaseOrder.receiving, 7);
+            // I assumed the same amount of days to delivery (7) when the sale date is later than the purchase order date.
+            const laterDate = new Date(saleOrder.created) > new Date(purchaseOrder.receiving) ? saleOrder.created : purchaseOrder.receiving
+            const deliveryDate = addDaysToDate(laterDate, 7);
 
             const delivery = {
                 id: saleOrder.id,

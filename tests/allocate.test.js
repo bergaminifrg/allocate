@@ -54,7 +54,7 @@ test('allocate function works with multiple sales and a single purchase', () => 
     const result = allocate(salesOrders, purchaseOrders);
     expect(result).toEqual([
         { id: 'S1', date: '2020-01-11' },
-        { id: 'S2', date: '2020-01-11' },
+        { id: 'S2', date: '2020-01-12' },
     ]);
 });
 
